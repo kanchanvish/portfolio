@@ -1,4 +1,5 @@
-<!-- {% load static %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +15,23 @@
     <link rel="stylesheet" href="{% static 'auth/css/color-4.css' %}">
     <link rel="stylesheet" href="{% static 'auth/css/color-5.css' %}">
     <!--======CSS Files======-->
-    <!-- <link rel="stylesheet" href="{% static 'auth/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'auth/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'auth/css/color-1.css' %}">
-    <link rel="stylesheet" href="{% static 'auth/css/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css' %}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"> 
     <!--===========Style Switcher=========-->
-    <!-- <link rel="stylesheet" href="{% static 'auth/css/style-switcher.css' %}">
+    <link rel="stylesheet" href="{% static 'auth/css/style-switcher.css' %}">
     <link rel="stylesheet" href="{% static 'auth/css/color-1.css' %}" class="alternate-style" title="color-1">
     <link rel="stylesheet" href="{% static 'auth/css/color-2.css' %}" class="alternate-style" title="color-2">
     <link rel="stylesheet" href="{% static 'auth/css/color-3.css' %}" class="alternate-style" title="color-3">
     <link rel="stylesheet" href="{% static 'auth/css/color-4.css' %}" class="alternate-style" title="color-4">
     <link rel="stylesheet" href="{% static 'auth/css/color-5.css' %}" class="alternate-style" title="color-5">
 </head>
-<body> -->
+<body>
     <!--====Main Container Start======-->
     <!-- <div class="main-container"> -->
         <!--======Aside Start=======-->
-        <!-- <div class="aside">
+
+        <div class="aside">
             <div class="logo">
                 <a href="#"><span>port</span>folio</a>
             </div>
@@ -37,63 +39,89 @@
                 <span></span>
             </div>
             <ul class="nav">
-                <li><a href="#home" class="active"><i class="fa fa-home"></i>Home</a></li>
-                <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
-                <li><a href="#services"><i class="fa fa-list"></i>Services</a></li>
-                <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a></li>
-                <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
+                <li><a href="/profile/" class="active"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="/about/"><i class="fa fa-user"></i>About</a></li>
+                <li><a href="/service/"><i class="fa fa-list"></i>Services</a></li>
+                <li><a href="/portfolio/"><i class="fa fa-briefcase"></i>Portfolio</a></li>
+                <li><a href="/contact/"><i class="fa fa-comments"></i>Contact</a></li>
                 <li><a href="/login/"><i class="fa fa-sign"></i>Login</a></li>
             </ul>
         </div>
-        <h3 class=" contact-title padd-15">SEND ME AN EMAIL</h3>
-        <h4 class="contact-sub-title padd-15"> I'M VERY RESPONSIVE TO MESSAGES</h4> -->
-        <!--=======Contact Form==========-->
-        <!-- <div class="row">
-            <div class="contact-form padd-15">
-                <div class="row">
-                    <div class="form-item col-6 padd-15">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name">
+        
+            <div class="main-content">
+                <section>
+            <div class="contact section" id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>Contect Me</h2>
                         </div>
                     </div>
-                    <div class="form-item col-6 padd-15">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email">
+                
+                    <div class="row">
+                        <!--======Contect info item start====-->
+                        
+                        <!--======Contect info item End====-->
+                        <!--======Contect info item start====-->
+                       
+                        <!--======Contect info item End====-->
+                        <!--======Contect info item start====-->
+                        
+                        <!--======Contect info item End====-->
+                        <!--======Contect info item start====-->
+                        
+                        <!--======Contect info item End====-->
+                    </div>
+                    <h3 class=" contact-title padd-15">SEND ME AN EMAIL</h3>
+                    <h4 class="contact-sub-title padd-15"> I'M VERY RESPONSIVE TO MESSAGES</h4>
+                    
+                    <form action="/contact/" method="post" role="form">
+                        {% csrf_token %}
+                    <div class="row">
+                        <div class="contact-form padd-15">
+                            <div class="row">
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Name" name="pname">
+                                    </div>
+                                </div>
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email" name="pemail">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Subject" name="psubject" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id=""
+                                            placeholder="Maessage" name="pmassage" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <button type="submit" class="btn">Send Message</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-item col-12 padd-15">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-item col-12 padd-15">
-                        <div class="form-group">
-                            <textarea name="" class="form-control" id=""
-                                placeholder="Maessage"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-item col-12 padd-15">
-                        <button type="submit" class="btn">Send Message</button>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </div>
-
+        </section> 
+        <!--======Contect section End====-->
     </div>
-</section> -->
-<!--======Contect section End====-->
-<!-- </div> -->
-<!--====Main Content End=====-->
-<!-- </div> -->
-<!--====Main Container End======-->
-<!--==========Style Switcher Start=========-->
-<!-- <div class="style-switcher">
+    <!--====Main Content End=====-->
+</div>
+<div class="style-switcher">
 <div class="style-switcher-toggler s-icon">
 <i class="fas fa-cog fa-spin"></i>
 </div>
@@ -108,27 +136,24 @@
 <span class="color-4" onclick="setActiveStyle('color-4')"></span>
 <span class="color-5" onclick="setActiveStyle('color-5')"></span>
 </div>
-</div> -->
+</div> 
 
 <!--=========JS Files========-->
-<!-- <script type="text/javascript" src="{% static 'auth/js/script.js' %}"></script>
+ <script type="text/javascript" src="{% static 'auth/js/script.js' %}"></script>
 <script type="text/javascript" src="{% static 'auth/js/style-switcher.js' %}"></script>
 <script src="{% static 'auth/js/https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js' %}"
-referrerpolicy="no-referrer"></script> -->
-<!-- </body>
+referrerpolicy="no-referrer"></script> 
+ </body>
 
 </html>
--->
-<!-- {% block content %}
-{% endblock content %}
 
-<script src="{% static 'js/script.js' %}"></script>
+<!-- <script src="{% static 'js/script.js' %}"></script>
 <script src="{% static 'js/style-switcher.js' %}"></script>
 
 
 
 
 </body>
-</html> -->
-<!-- <button><a href="{% url 'logout' %}">LOG OUT</a></button>
+</html>
+<button><a href="{% url 'logout' %}">LOG OUT</a></button>
 </body> -->

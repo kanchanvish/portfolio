@@ -1,4 +1,4 @@
-# from django.contrib import admin
-# from .models import contact
-# # Register your models here.
-# admin.site.register(contact)
+from django.contrib import admin
+from .models import portfolio,Contact
+admin.site.register(portfolio)
+# admin.site.register(Contact)

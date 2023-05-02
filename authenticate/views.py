@@ -3,7 +3,9 @@ from .forms import Sign_up
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
-
+from .models import Contact,portfolio as Portfolio
+from django.core.mail import send_mail,EmailMessage
+from django.conf import settings
 def home(request):
     if request.method=="POST":
         fm=Sign_up(request.POST)
@@ -56,15 +58,44 @@ def index(request):
     #     fm=Sign_up()
     return render(request,'auth/index.html')
 
-# def contact(request):
-#     if request.POST:
-#         name = request.POST['volunteer-name']
-#         email = request.POST['volunteer-email']
-#         print(name, email, )
-#         subject = 'Responce of user'
-#         message = 'You responce is' + '\n' + name + '\n' + email + '\n' + subject + '\n' + message
-#         email_from = 'kanchanvishwakarma199@gmail.com'
-#         # recipient_list = [settings.'EMAIL_HOST_USER']
-#         send_mail=(subject, message, email_from,)
+def contact(request):
+    # if request.method == "POST":
+    if request.POST:
+        name = request.POST['pname']
+        email = request.POST['pemail']
+        subject = request.POST['psubject']
+        message = request.POST['pmassage']
+        print(name, email,subject )
+        subject = 'Responce of user'
+        message = 'You responce is' + '\n' +'name'+ name + '\n' +'email'+ email + '\n' + subject + '\n' + message
+        # from_email = settings.EMAIL_HOST_USER
+        recipient_list = ['kanchanvishwakarma199@gmail.com']
+        send_mail(
+            subject='Response from user',
+            message=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=recipient_list,
+            fail_silently=False,
+        )
+        # contact = Contact.objects.create(name=name, email=email, subject=subject, message=message)
 
-#     return render(request,"movie/contect.html")
+    return render(request,"auth/contact.html")
+
+def portfolio(request,id=None):
+    print(id)
+    context = {}
+    
+    portfolio = Portfolio.objects.all()
+    context = {
+        'portfolio' : portfolio
+    }
+    return render(request,"auth/portfolio.html",context)
+
+def Service(request):
+    return render(request,"auth/service.html")
+
+def about(request):
+    return render(request,"auth/about.html")
+
+def profile(request):
+    return render(request,"auth/profile.html")
